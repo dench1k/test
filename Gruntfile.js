@@ -1,6 +1,7 @@
-module.exports = function(grunt) {
-
-    // Project configuration.
+// grunt
+// grunt task-name
+// grunt watch
+module.exports = function (grunt) {
     grunt.initConfig({
 
         concat: {
@@ -17,18 +18,15 @@ module.exports = function(grunt) {
         },
 
         uglify: {
-
             options: {
 
             },
-
             files: {
                 src: [
                     'assets/scripts/production.js'
                 ],
                 dest: 'assets/scripts/production.min.js'
             }
-
         },
 
         clean: {
@@ -39,7 +37,6 @@ module.exports = function(grunt) {
             options: {
 
             },
-
             files: {
                 expand: true,
                 cwd: 'assets/images/',
@@ -58,7 +55,7 @@ module.exports = function(grunt) {
             ],
             tasks: ['concat', 'uglify'],
             livereload: {
-                options: { livereload: true },
+                options: {livereload: true},
                 files: [
                     'assets/styles/**/*',
                     'assets/scripts/**/*'
@@ -73,7 +70,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-
     grunt.registerTask('default', ['concat', 'uglify', 'clean', 'imagemin']);
+    grunt.registerTask('img', ['clean', 'imagemin']);
 
 };
