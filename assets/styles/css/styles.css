@@ -337,3 +337,6 @@ textarea {
 .clearfix:after {
   clear: both;
 }
+body {
+    background: green;
+}
